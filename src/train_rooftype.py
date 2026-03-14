@@ -48,35 +48,41 @@ def get_data_loaders(data_dir, batch_size=32):
     
     return train_loader, val_loader, train_dataset.classes
 
-def build_model(num_classes):
-    """Builds EfficientNet B0 with customized classification head."""
+def build_model(num_classes, checkpoint_path=None):
+    """Builds EfficientNet B0, optionally loading from a checkpoint."""
     # Using v0.15+ PyTorch syntax for weights
     weights = models.EfficientNet_B0_Weights.DEFAULT
     model = models.efficientnet_b0(weights=weights)
     
-    # Freeze core layers initially (Transfer Learning)
-    for param in model.parameters():
-        param.requires_grad = False
-        
     # Replace the classifier block
-    # Adding Dropout=0.3 as specified in the project plan to prevent overfitting to CG data
     in_features = model.classifier[1].in_features
     model.classifier = nn.Sequential(
         nn.Dropout(p=0.3, inplace=True),
         nn.Linear(in_features, num_classes)
     )
-    
+
+    if checkpoint_path and os.path.exists(checkpoint_path):
+        logging.info(f"Loading checkpoint from {checkpoint_path}")
+        model.load_state_dict(torch.load(checkpoint_path))
+    else:
+        # Freeze core layers initially ONLY if no checkpoint (Transfer Learning)
+        for param in model.parameters():
+            param.requires_grad = False
+        # Ensure our new classifier is trainable
+        for param in model.classifier.parameters():
+            param.requires_grad = True
+        
     return model
 
-def train_rooftype_model(data_dir, epochs=10, batch_size=32):
-    """Main training loop for rooftop classification."""
+def train_rooftype_model(data_dir, epochs=10, batch_size=32, checkpoint_path=None, save_path="models/rooftype_last.pt"):
+    """Main training loop for rooftop classification with incremental support."""
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     logging.info(f"Using device: {device}")
     
     train_loader, val_loader, classes = get_data_loaders(data_dir, batch_size)
     logging.info(f"Classes found: {classes}")
     
-    model = build_model(len(classes)).to(device)
+    model = build_model(len(classes), checkpoint_path).to(device)
     criterion = nn.CrossEntropyLoss()
     optimizer = torch.optim.Adam(model.classifier.parameters(), lr=0.001)
     
@@ -98,8 +104,10 @@ def train_rooftype_model(data_dir, epochs=10, batch_size=32):
         epoch_loss = running_loss / len(train_loader.dataset)
         logging.info(f"Epoch {epoch+1}/{epochs} - Train Loss: {epoch_loss:.4f}")
         
-    # TODO: Add saving logic (e.g., Export to ONNX for inference_pipeline.py)
-    # torch.onnx.export(...)
+    # Save Model
+    os.makedirs(os.path.dirname(save_path), exist_ok=True)
+    torch.save(model.state_dict(), save_path)
+    logging.info(f"Model saved to {save_path}")
     
     return model
 
