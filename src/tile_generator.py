@@ -97,8 +97,11 @@ def generate_tiles(input_tif: str, output_dir: str, tile_size: int = 640, overla
         logging.error(f"Failed to generate tiles: {e}")
 
 if __name__ == "__main__":
-    # Example usage (update paths as needed when real data is available)
-    # input_file = "../data/raw/village_sample.tif"
-    # output_folder = "../data/tiles/village_sample/"
-    # generate_tiles(input_file, output_folder, tile_size=640)
-    pass
+    import argparse
+    parser = argparse.ArgumentParser(description="Generate 640x640 tiles from a GeoTIFF.")
+    parser.add_argument("--input", required=True, help="Path to input .tif file")
+    parser.add_argument("--output", required=True, help="Path to output directory")
+    parser.add_argument("--size", type=int, default=640, help="Tile size (default 640)")
+    
+    args = parser.parse_args()
+    generate_tiles(args.input, args.output, tile_size=args.size)
