@@ -39,3 +39,8 @@
 
 ## Phase 6: Dataset Packaging for Hosting (Kaggle/HF)
 - [x] Package Punjab and Chhattisgarh tiles into optimized (~5GB) zip volumes
+
+## Phase 7: Team Handoff & Training Guardrails
+- [x] Mandate isolated feature branches for all new work
+- [x] Mandate subset testing (50-100 images) before full-scale training loops
+- [x] Push final handoff-ready documentation to GitHub
