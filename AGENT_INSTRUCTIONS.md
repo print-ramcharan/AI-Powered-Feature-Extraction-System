@@ -44,7 +44,8 @@ If creating or modifying files, ensure they fit into this architecture:
 - **Memory Management:** For large imagery, use tiling (e.g., 640x640 patches). Explicitly use `del` and `gc.collect()` to manage RAM on resource-constrained local machines.
 - **Formats:** Return predictions in proper GeoJSON format with properties (class, confidence, area/width).
 - **Documentation:** Always add clear docstrings and typing to Python functions. Ensure paths are relative to the project root or configurable.
-- **MANDATORY SUBSET TESTING:** Before initiating any large-scale model training loop on Kaggle/Colab, you MUST explicitly test the training pipeline locally or in the cloud using a tiny subset (e.g., 50-100 images). ONLY after confirming the code runs without errors should you launch the full 100GB dataset training. Do not waste GPU hours or debugging time on broken training loops.
+- **MANDATORY PARTITIONED TRAINING:** Training on the 100GB+ dataset MUST follow the incremental approach detailed in [docs/STRATEGY_INCREMENTAL_TRAINING.md](file:///Users/ram/Desktop/AI-Powered Feature Extraction System/docs/STRATEGY_INCREMENTAL_TRAINING.md).
+- **MANDATORY SUBSET TESTING:** Before initiating any large-scale model training loop on Kaggle/Colab, you MUST explicitly test the training pipeline locally or in the cloud using a tiny subset (e.g., 50-100 images). ONLY after confirming the code runs without errors should you launch the full partitioned training volumes. Do not waste GPU hours or debugging time on broken training loops.
 
 ## 5. Collaboration via Git & Peer Approval
 - Always make concise and descriptive commit messages.

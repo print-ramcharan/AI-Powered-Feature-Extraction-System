@@ -43,4 +43,5 @@
 ## Phase 7: Team Handoff & Training Guardrails
 - [x] Mandate isolated feature branches for all new work
 - [x] Mandate subset testing (50-100 images) before full-scale training loops
+- [x] Author and mandate Incremental/Partitioned Training Strategy (Volume-by-Volume)
 - [x] Push final handoff-ready documentation to GitHub
