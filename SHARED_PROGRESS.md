@@ -15,10 +15,12 @@ This document acts as an immutable ledger of project actions. It tracks what has
 - **Data Uploaded to Kaggle:** Ram successfully uploaded the tiled datasets to Kaggle for immediate team use.
   - [punjab_baga_vol1](http://kaggle.com/datasets/pramcharanteja/punjab-baga-vol1) (1,435 tiles)
   - [punjab_fattu_bhila_vol1](http://kaggle.com/datasets/pramcharanteja/punjab-fattu-bhila-vol1) (1,120 tiles)
-  - [chhattisgarh-vol1-vol24](http://kaggle.com/datasets/pramcharanteja/chhattisgarh-vol3-vol24) (68,750 tiles split across multiple volumes)
+  - [chhattisgarh_vol1](http://kaggle.com/datasets/pramcharanteja/chhattisgarh-vol1) (2,868 tiles)
+  - [chhattisgarh_vol2](http://kaggle.com/datasets/pramcharanteja/chhattisgarh-vol2) (2,868 tiles)
+  - [chhattisgarh-vol3-vol24](http://kaggle.com/datasets/pramcharanteja/chhattisgarh-vol3-vol24) (63,014 tiles split across multiple volumes)
+- **Data Conversion:** Sanjay successfully downloaded `CG_451189_ecw.zip` from the shared Drive, converted it to `.tif` via QGIS/GDAL, and re-uploaded it for the team.
 
 ## Current Pending Action
-- **Data Conversion:** Sanjay must download `CG_451189_ecw.zip` from the shared Drive, convert it to `.tif` via QGIS/GDAL, and re-upload it.
 - **Model Training Phase Begins:** Sneha, Nikitha, and Sanjay can now pull the Kaggle datasets from PRamcharanTeja's profile into their respective Kaggle or Colab notebooks and begin training their YOLOv8 models.
 
 *(Last Updated: Initial Setup Complete)*

@@ -9,11 +9,12 @@
 - [x] Add instructions for AI to automatically identify the user and their associated tasks
 - [x] Push project to GitHub remote: `https://github.com/print-ramcharan/AI-Powered-Feature-Extraction-System.git`
 
-## Phase 1: Software Setup & Core Pipeline (Ram's Work)
+## Phase 1: Software Setup & Core Pipeline
 - [x] Create a new branch `feature/ram-core-pipeline`
 - [x] Create `requirements.txt` based on project needs (YOLO, ONNX, Rasterio, etc.)
 - [x] Setup standard directory structure (`src`, `notebooks`, etc.)
 - [x] Write `src/tile_generator.py` (Ram's Day 1 task)
+- [x] Convert `CG_451189_ecw` to GeoTIFF via QGIS/GDAL and upload (Sanjay's task)
 - [x] Merge `feature/ram-core-pipeline` to `main` and push
 
 ## Phase 2: Core Modeling & Inference Pipeline (Ram's Work)
