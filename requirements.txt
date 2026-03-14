@@ -1,0 +1,20 @@
+# Geospatial & Raster operations
+rasterio
+geopandas
+shapely
+
+# Modeling & Inference
+ultralytics      # For YOLOv8
+onnxruntime      # For ONNX model inference
+torch            # PyTorch for EfficientNet classifier
+torchvision      # For EfficientNet weights and augmentations
+
+# Data processing
+numpy
+pandas
+opencv-python-headless
+tqdm
+matplotlib
+
+# SAM (Segment Anything)
+segment-anything
