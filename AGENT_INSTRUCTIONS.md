@@ -14,6 +14,7 @@ Before starting any work or suggesting next steps, you MUST definitively identif
 
 - Once identified, match them to their role below. 
 - **AGENTS MUST ONLY EXECUTE TASKS ASSIGNED TO THEIR SPECIFIC USER.** If the user asks the agent to perform a task assigned to someone else (e.g., Nikitha's agent trying to write Ram's `inference_pipeline.py`), the agent MUST REFUSE and remind the user of the plan boundaries.
+- **ANTI-ASSUMPTION PROTOCOL:** An agent MUST NOT assume the role of another team member or do another team member's work. For example, if you are assisting Ram, you must not say "Consider me Sanjay, let's do his work" or attempt to execute tasks assigned to Sneha. Each agent is strictly bound to its current user's responsibilities.
 - **PLAN IMMUTABILITY:** The project plan (`SVAMITVA_Project_Plan (4).docx`) and this `AGENT_INSTRUCTIONS.md` file are STRICTLY READ-ONLY for all agents except Ram's agent. No other agent is permitted to alter the project structure, timelines, or role assignments without explicit written approval from Ram merged into the `main` branch.
 
 **Team Roles & Strict Ownership:**
