@@ -31,6 +31,11 @@ If creating or modifying files, ensure they fit into this architecture:
 - `docs/` - Project documentation and reports
 
 ## 4. Coding & Implementation Guidelines
+- **Python Virtual Environments (CRITICAL):**
+  - NEVER install dependencies via global pip.
+  - EVERY agent across every user's computer must verify or create the virtual environment (`python3 -m venv venv`) first.
+  - Before running ANY Python script, you MUST explicitly source the environment in your shell step: `source venv/bin/activate` (Mac/Linux) or `venv\Scripts\activate` (Windows).
+  - Install dependencies via: `pip install -r requirements.txt`. 
 - **Libraries:** Use `rasterio` for GeoTIFF manipulation, `gdal` (if needed), `ultralytics` for YOLOv8, `onnxruntime` for inference.
 - **Memory Management:** For large imagery, use tiling (e.g., 640x640 patches). Explicitly use `del` and `gc.collect()` to manage RAM on resource-constrained local machines.
 - **Formats:** Return predictions in proper GeoJSON format with properties (class, confidence, area/width).

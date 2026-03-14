@@ -9,7 +9,8 @@ This document tracks all project actions so team members know exactly what has b
   - `notebooks/ram_rooftype.ipynb` (Colab environment wrapper ready)
   - `src/inference_pipeline.py` (Master inference script ready)
   - `src/tile_generator.py` (GeoTIFF tiling script ready)
-- **Raw Data Unzipped:** The datasets (`CG_450163`, `PB_37458_37774`, and `CG_451189_ecw`) have been successfully downloaded and extracted into the local `data/raw/` directory.
+- **Virtual Environment Configured:** `requirements.txt` pushed. Every collaborator must create and activate a `venv` before running the tiling or inference codes to prevent global variable errors. 
+- **Raw Data Unzipped:** The datasets (`CG_450163`, `PB_37458_37774`, and `CG_451189_ecw`) have been successfully downloaded and extracted into the local `data/raw/` directory. (Note: These are gitignored and shared via Google Drive).
 
 ## Current Pending Action
 - **Generate Tiled Patches:** Wait for Ram or another teammate to run `src/tile_generator.py` to convert the massive `.tif` files into 640x640 patches.
