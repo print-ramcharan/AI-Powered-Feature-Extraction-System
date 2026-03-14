@@ -49,5 +49,6 @@ If creating or modifying files, ensure they fit into this architecture:
 - Do not commit large files (`.tif`, `.ecw`, `.onnx`, `.pt`). Ensure `.gitignore` handles these securely.
 - **APPROVAL BOUNDARIES:** If Nikitha, Sanjay, or Sneha want to modify a core pipeline script owned by Ram (like `inference_pipeline.py`), their agent MUST create a new branch (e.g., `feature/nikitha-inference-fix`), commit the changes, and wait for Ram's agent to explicitly review and merge it. Agents must not push directly to `main` to bypass this.
 - Updates to `SHARED_PROGRESS.md` should be made strictly in the third person (e.g., "Ram wrote the script", NOT "I wrote the script") so that any cloning agent reads it as an objective historical ledger rather than confusing it with its own actions.
+- **TASK TRACKING (CRITICAL):** The file `Task.md` in the root directory is the central source of truth for the project timeline. All agents must refer to `Task.md` to identify the current objective and update its checklist to reflect newly completed or in-progress steps. Do not create separate hidden task trackers.
 
 *Follow the sprint plan, adhere to role assignments, and assist Ram proactively with the pipeline and model fusion.*
