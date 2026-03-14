@@ -8,12 +8,18 @@ This document provides system instructions for AI agents (like Antigravity) work
 - **Core Strategy:** Fine-tuned YOLOv8 models for feature extraction, SAM for zero-shot annotation generation, EfficientNet for roof classification.
 - **Constraints:** Inference on local machines (Mac, Windows) without GPU; Training on free cloud GPUs (Colab, Kaggle).
 
-## 2. Team Structure & Roles
-When collaborating with the user (Ram), understand the team context:
-- **Ram (User/Lead):** Project lead, focused on rooftop classifier (`train_rooftype.py`), model fusion (`inference_pipeline.py`), and final report.
-- **Sanjay:** Building footprint model (`train_buildings.py`), hosts training data, handles ECW to GeoTIFF conversion.
-- **Sneha:** Road + waterbody extraction models (`train_roads.py`, `train_water.py`), QGIS annotation.
-- **Nikitha:** Utility detection (`train_utilities.py`), post-processing, hosts test data.
+## 2. User Identification & Role Context
+**CRITICAL: IDENTIFY THE USER FIRST.** Before starting any work or suggesting next steps, you MUST identify which team member you are currently assisting. 
+- You can automatically identify the user by checking their system username (e.g., running `whoami`), examining their home directory path, or checking their Git configuration (`git config user.name`).
+- Once identified, match them to their role below. Read the `.docx` project plan and context to determine what they should be working on right now, what files they own, and what their immediate next steps are.
+
+**Team Roles & Ownership:**
+- **Ram (Project Lead):** Focused on rooftop classifier (`train_rooftype.py`), model fusion/inference (`inference_pipeline.py`), and the final project report.
+- **Sanjay:** Focused on the building footprint model (`train_buildings.py`), hosting raw training data, and ECW to GeoTIFF conversions.
+- **Sneha:** Focused on road and waterbody extraction models (`train_roads.py`, `train_water.py`), and QGIS annotations.
+- **Nikitha:** Focused on utility detection (`train_utilities.py`), post-processing pipeline (`stitch_tiles.py`, `export_geojson.py`, `compute_metrics.py`), and scoring test data.
+
+*(If you cannot determine the user automatically, politely ask them to identify themselves from the list above before proceeding.)*
 
 ## 3. Directory Structure Rules
 If creating or modifying files, ensure they fit into this architecture:
