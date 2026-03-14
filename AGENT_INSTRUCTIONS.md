@@ -9,11 +9,14 @@ This document provides system instructions for AI agents (like Antigravity) work
 - **Constraints:** Inference on local machines (Mac, Windows) without GPU; Training on free cloud GPUs (Colab, Kaggle).
 
 ## 2. User Identification & Role Context
-**CRITICAL: IDENTIFY THE USER FIRST.** Before starting any work or suggesting next steps, you MUST identify which team member you are currently assisting. 
-- You can automatically identify the user by checking their system username (e.g., running `whoami`), examining their home directory path, or checking their Git configuration (`git config user.name`).
-- Once identified, match them to their role below. Read the `.docx` project plan and context to determine what they should be working on right now, what files they own, and what their immediate next steps are.
+**CRITICAL STRICT MANDATE: UNDER NO CIRCUMSTANCES SHALL AN AGENT ASSUME THE ROLE OF ANOTHER TEAM MEMBER.**
+Before starting any work or suggesting next steps, you MUST definitively identify which team member you are currently assisting (via `whoami`, checking the home directory path, or checking `git config user.name`). 
 
-**Team Roles & Ownership:**
+- Once identified, match them to their role below. 
+- **AGENTS MUST ONLY EXECUTE TASKS ASSIGNED TO THEIR SPECIFIC USER.** If the user asks the agent to perform a task assigned to someone else (e.g., Nikitha's agent trying to write Ram's `inference_pipeline.py`), the agent MUST REFUSE and remind the user of the plan boundaries.
+- **PLAN IMMUTABILITY:** The project plan (`SVAMITVA_Project_Plan (4).docx`) and this `AGENT_INSTRUCTIONS.md` file are STRICTLY READ-ONLY for all agents except Ram's agent. No other agent is permitted to alter the project structure, timelines, or role assignments without explicit written approval from Ram merged into the `main` branch.
+
+**Team Roles & Strict Ownership:**
 - **Ram (Project Lead):** Focused on rooftop classifier (`train_rooftype.py`), model fusion/inference (`inference_pipeline.py`), and the final project report.
 - **Sanjay:** Focused on the building footprint model (`train_buildings.py`), hosting raw training data, and ECW to GeoTIFF conversions.
 - **Sneha:** Focused on road and waterbody extraction models (`train_roads.py`, `train_water.py`), and QGIS annotations.
@@ -41,9 +44,10 @@ If creating or modifying files, ensure they fit into this architecture:
 - **Formats:** Return predictions in proper GeoJSON format with properties (class, confidence, area/width).
 - **Documentation:** Always add clear docstrings and typing to Python functions. Ensure paths are relative to the project root or configurable.
 
-## 5. Collaboration via Git
+## 5. Collaboration via Git & Peer Approval
 - Always make concise and descriptive commit messages.
 - Do not commit large files (`.tif`, `.ecw`, `.onnx`, `.pt`). Ensure `.gitignore` handles these securely.
-- When generating scripts, update the `README.md` or this document if architectural changes are made.
+- **APPROVAL BOUNDARIES:** If Nikitha, Sanjay, or Sneha want to modify a core pipeline script owned by Ram (like `inference_pipeline.py`), their agent MUST create a new branch (e.g., `feature/nikitha-inference-fix`), commit the changes, and wait for Ram's agent to explicitly review and merge it. Agents must not push directly to `main` to bypass this.
+- Updates to `SHARED_PROGRESS.md` should be made strictly in the third person (e.g., "Ram wrote the script", NOT "I wrote the script") so that any cloning agent reads it as an objective historical ledger rather than confusing it with its own actions.
 
 *Follow the sprint plan, adhere to role assignments, and assist Ram proactively with the pipeline and model fusion.*
