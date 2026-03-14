@@ -14,11 +14,11 @@ Instead of one massive training loop, the team will use **Checkpointed fine-tuni
     *   Command: `model = YOLO('runs/train/weights/last.pt')`
     *   Command: `model.train(data='vol2.yaml', epochs=10)`
     *   This "continues" the learning on a new dataset slice.
-3.  **Repeat:** Iterate through all 24 volumes.
+3.  **Repeat:** Iterate through all 24 individual Kaggle volumes (`chhattisgarh-vol1` through `chhattisgarh-vol24`).
 
 ## Benefits
 -   **No Timeouts:** You can stop after any volume and save the weights.
-    -   **Checkpoint Reliability:** If a browser closes or a notebook restarts, you only lose progress on the *current* volume, not the whole project.
+    -   **Checkpoint Reliability:** If a browser closes or a notebook restarts, you only lose progress on the *current* volume, not the whole project. Since each volume is its own Kaggle dataset, downloading is faster and more granular.
     -   **Memory Efficiency:** The GPU only has to cache a smaller subset of images at a time.
     -   **Validation Snapshots:** We can evaluate metrics (`mAP50`) after every volume to see if the model is actually getting smarter or if it's "forgetting" old data (Catastrophic Forgetting).
 
