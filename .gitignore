@@ -1,0 +1,31 @@
+# Python
+__pycache__/
+*.py[cod]
+
+# SVAMITVA Project specific ignores
+# Do not track large raster and model files
+data/
+models/
+outputs/
+*.onnx
+*.pt
+*.ecw
+*.tif
+*.tiff
+*.zip
+*.geojson
+
+# Virtual Environment
+venv/
+env/
+.env
+
+# MacOS
+.DS_Store
+
+# IDEs
+.vscode/
+.idea/
+
+# Jupyter
+.ipynb_checkpoints/
