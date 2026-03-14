@@ -18,8 +18,8 @@
 - [x] Merge `feature/ram-core-pipeline` to `main` and push
 
 ## Phase 2: Core Modeling & Inference Pipeline (Ram's Work)
-- [x] Create `src/train_rooftype.py` (EfficientNet roof classifier)
-- [x] Create `notebooks/ram_rooftype.ipynb` (Colab/Kaggle training notebook)
+- [x] Create `src/train_rooftype.py` (EfficientNet roof classifier) - CORRECTED for incremental support
+- [x] Create `notebooks/ram_rooftype.ipynb` (Colab/Kaggle training notebook) - CORRECTED for partitioned training
 - [x] Create `src/inference_pipeline.py` (Master script for model fusion)
 - [x] Commit and push changes to `main`
 
