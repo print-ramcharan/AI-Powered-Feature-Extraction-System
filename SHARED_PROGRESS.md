@@ -41,7 +41,14 @@ This document acts as an immutable ledger of project actions. It tracks what has
   - [chhattisgarh_vol24](http://kaggle.com/datasets/pramcharanteja/chhattisgarh-vol24)
 - **Data Conversion:** Sanjay successfully downloaded `CG_451189_ecw.zip` from the shared Drive, converted it to `.tif` via QGIS/GDAL, and re-uploaded it for the team.
 
-## Current Pending Action
-- **Model Training Phase Begins:** Sneha, Nikitha, and Sanjay can now pull the Kaggle datasets from PRamcharanTeja's profile into their respective Kaggle or Colab notebooks and begin training their YOLOv8 models.
+## Phase 2: Training Data & Label Expansion (Sequential Processing)
+- **Multi-Class Label Processor:** An AI agent successfully developed `src/label_processor.py` to convert master Shapefiles into multi-class YOLO labels (Buildings, Roads, Waterbodies, Utilities).
+- **Punjab Dataset Completed:** 
+  - All 5 villages (Nadala, Pindori, Timmowal, Fattu Bhila, and Bagga) have been fully processed.
+  - Tiling and multi-class label generation is complete for the entire Punjab wing.
+  - Data has been packaged into volumes for Kaggle updates.
+- **Chhattisgarh Expansion (In Progress):**
+  - **BADETUMNAR (Set 2) Complete:** The largest village in the expansion set was processed, generating over 58,000 tiles (18GB) with full multi-class labels.
+  - **Sequential Space Management:** The agent is currently zipping these 58,000 tiles into 4.5GB volumes to reclaim local disk space before starting the final village, KUTRU.
 
-*(Last Updated: Initial Setup Complete)*
+*(Last Updated: Punjab Set Complete, CG Expansion In Progress)*
