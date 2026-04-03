@@ -18,3 +18,10 @@ matplotlib
 
 # SAM (Segment Anything)
 segment-anything
+
+# Web Server (FastAPI)
+fastapi
+uvicorn
+python-multipart
+httpx
+axios
